@@ -23,7 +23,7 @@ const fetchMyIP = function (callback) {
     }
     // if non-200 status, assume server error
     if (response.statusCode !== 200) {
-      const msg = `Status Code ${respon.statusCode} when fetching IP. Response ${body}.`;
+      const msg = `Status Code ${response.statusCode} when fetching IP. Response ${body}.`;
       callback(error(msg), null);
       return;
     }
@@ -32,4 +32,6 @@ const fetchMyIP = function (callback) {
   });
 };
 
-module.exports = { fetchMyIP };
+const fetchCoordsByIP = function (ip, callback) {};
+
+module.exports = { fetchMyIP, fetchCoordsByIP };
