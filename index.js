@@ -1,5 +1,22 @@
-const { error } = require("console");
 const { nextISSTimesForMyLocation } = require("./iss");
+
+/**
+ * Input:
+ *   Array of data objects defining the next fly-overs of the ISS.
+ *   [ { risetime: <number>, duration: <number> }, ... ]
+ * Returns:
+ *   undefined
+ * Sideffect:
+ *   Console log messages to make that data more human readable.
+ *   Example output:
+ *   Next pass at Mon Jun 10 2019 20:11:44 GMT-0700 (Pacific Daylight Time) for 468 seconds!
+ */
+
+const displayPT = function (passTimes) {
+  for (const time of passTimes) {
+    console.log(passTimes);
+  }
+};
 
 nextISSTimesForMyLocation((error, passTimes) => {
   if (error) {
@@ -27,7 +44,7 @@ nextISSTimesForMyLocation((error, passTimes) => {
 //   console.log("It worked! Returned coordinates:", coords);
 // });
 
-// const coordinates = { latitude: "aaa", longitude: "-79.34" };
+// const coordinates = { latitude: "43.6567", longitude: "-79.34" };
 
 // fetchISSFlyOverTimes(coordinates, (error, message) => {
 //   if (error) {

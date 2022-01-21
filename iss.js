@@ -72,11 +72,11 @@ const fetchMyIP = function (callback) {
  *   - The lat and lng as an object (null if error). Example:
  *     { latitude: '49.27670', longitude: '-123.13000' }
  */
-
-const fetchCoordsByIP = function (ip, callback) {
+let IP = "99.229.241.42";
+const fetchCoordsByIP = function (IP, callback) {
   // let url = `https://freegeoip.app/json/${ip}`;
 
-  request(`https://freegeoip.app/json/${ip}`, (error, response, body) => {
+  request(`https://freegeoip.app/json/${IP}`, (error, response, body) => {
     if (error) {
       callback(error, null);
       return;
@@ -105,6 +105,7 @@ const fetchCoordsByIP = function (ip, callback) {
  *     [ { risetime: 134564234, duration: 600 }, ... ]
  */
 
+const coords = { latitude: "43.6567", longitude: "-79.34" };
 const fetchISSFlyOverTimes = function (coords, callback) {
   // let url = `https://iss-pass.herokuapp.com/json/?lat=${coords.latitude}&lon=${coords.longitude}`;
 
