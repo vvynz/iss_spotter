@@ -26,5 +26,5 @@ fetchISSFlyOverTimes(coordinates, (error, message) => {
     return;
   }
 
-  console.log("Upcoming ISS will fly over in:", message);
+  console.log("It worked! Upcoming flyover times:", message);
 });
