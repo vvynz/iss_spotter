@@ -15,7 +15,8 @@ const nextISSTimesForMyLocation = function (callback) {
       return callback(error, null);
     }
 
-    fetchCoordsByIP(ip, (error, coords) => {
+    let ipAdd = "99.229.241.42";
+    fetchCoordsByIP(ipAdd, (error, coords) => {
       if (error) {
         return callback(error, null);
       }
