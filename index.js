@@ -14,18 +14,20 @@ const { nextISSTimesForMyLocation } = require("./iss");
 
 const displayPT = function (passTimes) {
   for (const time of passTimes) {
-    console.log(passTimes);
+    const timeStamp = new Date(0);
+    const duration = passTimes.duration;
+    console.log(`${timeStamp} for ${duration} seconds.`);
   }
 };
 
-nextISSTimesForMyLocation((error, passTimes) => {
-  if (error) {
-    return console.log("It didn't work!", error);
-  }
+// nextISSTimesForMyLocation((error, passTimes) => {
+//   if (error) {
+//     return console.log("It didn't work!", error);
+//   }
 
-  // success! Print out the details
-  console.log(passTimes);
-});
+//   // success! Print out the details
+//   console.log(passTimes);
+// });
 
 // fetchMyIP((error, ip) => {
 //   if (error) {
