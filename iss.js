@@ -80,7 +80,12 @@ const fetchISSFlyOverTimes = function (coords, callback) {
   request(url, (error, response, body) => {
     if (error) {
       callback(error, null);
+      return;
     }
+
+    const data = JSON.parse(body).response;
+    const responseTimes = data[2];
+    callback(null, data);
   });
 };
 
