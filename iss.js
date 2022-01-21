@@ -20,7 +20,8 @@ const nextISSTimesForMyLocation = function (callback) {
         return callback(error, null);
       }
 
-      fetchISSFlyOverTimes(coordinates, (error, message) => {
+      const coords = { latitude: "43.6567", longitude: "-79.34" };
+      fetchISSFlyOverTimes(coords, (error, message) => {
         if (error) {
           return callback(error, null);
         }
@@ -72,11 +73,11 @@ const fetchMyIP = function (callback) {
  *   - The lat and lng as an object (null if error). Example:
  *     { latitude: '49.27670', longitude: '-123.13000' }
  */
-let IP = "99.229.241.42";
-const fetchCoordsByIP = function (IP, callback) {
+let IPA = "99.229.241.42";
+const fetchCoordsByIP = function (IPA, callback) {
   // let url = `https://freegeoip.app/json/${ip}`;
 
-  request(`https://freegeoip.app/json/${IP}`, (error, response, body) => {
+  request(`https://freegeoip.app/json/${IPA}`, (error, response, body) => {
     if (error) {
       callback(error, null);
       return;
@@ -106,11 +107,11 @@ const fetchCoordsByIP = function (IP, callback) {
  */
 
 const coords = { latitude: "43.6567", longitude: "-79.34" };
-const fetchISSFlyOverTimes = function (coords, callback) {
+const fetchISSFlyOverTimes = function (coordinates, callback) {
   // let url = `https://iss-pass.herokuapp.com/json/?lat=${coords.latitude}&lon=${coords.longitude}`;
 
   request(
-    `https://iss-pass.herokuapp.com/json/?lat=${coords.latitude}&lon=${coords.longitude}`,
+    `https://iss-pass.herokuapp.com/json/?lat=${coordinates.latitude}&lon=${coordinates.longitude}`,
     (error, response, body) => {
       // returns an error message for any nullable error
       if (error) {
