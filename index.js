@@ -22,7 +22,7 @@ const coordinates = { latitude: "aaa", longitude: "-79.34" };
 
 fetchISSFlyOverTimes(coordinates, (error, message) => {
   if (error) {
-    console.log("It didn't work! Invalid coordinates", error);
+    console.log("Invalid coordinates: ", error);
     return;
   }
 

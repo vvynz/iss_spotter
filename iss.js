@@ -85,7 +85,7 @@ const fetchISSFlyOverTimes = function (coords, callback) {
     }
     // returns an error message if the statuscode !== 200
     if (response.statusCode !== 200) {
-      const msg = `Status code: ${response.statusCode}. `;
+      const msg = `Status code: ${response.statusCode}: when fetching ISS coordinates ${body}.`;
       callback(Error(msg), null);
       return;
     }
