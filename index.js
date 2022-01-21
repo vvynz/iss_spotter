@@ -17,7 +17,9 @@ const displayPT = function (passTimes) {
     const timeStamp = new Date(0);
     timeStamp.setUTCSeconds(time.risetime);
     const duration = passTimes.duration;
-    console.log(`${timeStamp} for ${duration} seconds.`);
+    console.log(
+      `The next flyover pass will be at ${timeStamp} for ${duration} seconds.`
+    );
   }
 };
 
