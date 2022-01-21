@@ -21,7 +21,7 @@ const nextISSTimesForMyLocation = function (callback) {
         return callback(error, null);
       }
 
-      const coords = { latitude: "43.6567", longitude: "-79.34" };
+      const location = { latitude: "43.6567", longitude: "-79.34" };
       fetchISSFlyOverTimes(coords, (error, message) => {
         if (error) {
           return callback(error, null);
@@ -107,7 +107,7 @@ const fetchCoordsByIP = function (IPA, callback) {
  *     [ { risetime: 134564234, duration: 600 }, ... ]
  */
 
-const coords = { latitude: "43.6567", longitude: "-79.34" };
+const coordinates = { latitude: "43.6567", longitude: "-79.34" };
 const fetchISSFlyOverTimes = function (coordinates, callback) {
   // let url = `https://iss-pass.herokuapp.com/json/?lat=${coords.latitude}&lon=${coords.longitude}`;
 
