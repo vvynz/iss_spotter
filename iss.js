@@ -105,25 +105,28 @@ const fetchCoordsByIP = function (ip, callback) {
  *     [ { risetime: 134564234, duration: 600 }, ... ]
  */
 
-// const fetchISSFlyOverTimes = function (coords, callback) {
-//   let url = `https://iss-pass.herokuapp.com/json/?lat=${coords.latitude}&lon=${coords.longitude}`;
+const fetchISSFlyOverTimes = function (coords, callback) {
+  // let url = `https://iss-pass.herokuapp.com/json/?lat=${coords.latitude}&lon=${coords.longitude}`;
 
-//   request(url, (error, response, body) => {
-//     // returns an error message for any nullable error
-//     if (error) {
-//       callback(error, null);
-//       return;
-//     }
-//     // returns an error message if the statuscode !== 200
-//     if (response.statusCode !== 200) {
-//       const msg = `Status code: ${response.statusCode}: when fetching ISS coordinates ${body}.`;
-//       callback(Error(msg), null);
-//       return;
-//     }
-//     // passes an array of response times to the callback
-//     const responseTimes = JSON.parse(body).response;
-//     callback(null, responseTimes);
-//   });
-// };
+  request(
+    `https://iss-pass.herokuapp.com/json/?lat=${coords.latitude}&lon=${coords.longitude}`,
+    (error, response, body) => {
+      // returns an error message for any nullable error
+      if (error) {
+        callback(error, null);
+        return;
+      }
+      // returns an error message if the statuscode !== 200
+      if (response.statusCode !== 200) {
+        const msg = `Status code: ${response.statusCode}: when fetching ISS coordinates ${body}.`;
+        callback(Error(msg), null);
+        return;
+      }
+      // passes an array of response times to the callback
+      const responseTimes = JSON.parse(body).response;
+      callback(null, responseTimes);
+    }
+  );
+};
 
 module.exports = { nextISSTimesForMyLocation };
